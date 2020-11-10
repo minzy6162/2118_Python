@@ -50,7 +50,7 @@ class TictactoeGUI:
         self.images['O'] = tkinter.PhotoImage(file='O.gif')
         self.images['X'] = tkinter.PhotoImage(file='X.gif')
 
-        self.canvas.bind('<Button-1>', self.click_handler)
+        self.canvas.bind('<Button-1>', self.click_handler) #canvas와 click을 연결하는 코드
 
     def click_handler(self, event):
         x = event.x
@@ -80,7 +80,7 @@ class TictactoeGUI:
             messagebox.showinfo('Game Over', '무승부')
             self.root.quit()
 
-    def draw_board(self):
+    def draw_board(self): #x, y가 어느 시점에 바뀌게 되는지
         x = 0
         y = 0
         for i, v in enumerate(self.game_engine.board):

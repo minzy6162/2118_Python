@@ -69,12 +69,22 @@ class TictactoeGUI:
             print('X 이김')
         elif winner == 'd':
             print('무승부')
-        self.canvas.create_image(x, y, anchor="nw", image=self.images['0'])
+
+    def draw_board(self):
+        x = 0
+        y = 0
+        for i, v in enumerate(self.game_engine.board):
+            if v == 'O':
+                self.canvas.create_image(x, y, anchor='nw', image=self.image['O'])
+            elif v == 'X':
+                self.canvas.create_image(x, y, anchor='nw', image=self.image['X'])
+
+            TILE_SIZE  = self.CANVAS_SIZE//3
+            x+= TILE_SIZE
 
     def play(self):
-        self.canvas.create_image(0, 0, anchor='nw',  image=self.images['O'])
-        self.canvas.create_image(200, 200, anchor='nw',  image=self.images['X'])
         self.root.mainloop()
+
 
 if __name__ == '__main__':
     #ttt = Tictactoe()

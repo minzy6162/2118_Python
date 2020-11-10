@@ -1,4 +1,5 @@
 import tkinter
+from tkinter import messagebox
 
 from tictactoe_game_engine import TictactoeGameEngine
 
@@ -67,11 +68,17 @@ class TictactoeGUI:
 
         #결과 보여주기
         if winner == 'O':
-            print('O 이김')
+            #print('O 이김')
+            messagebox.showinfo('Game Over', 'O 이김')
+            self.root.quit()
         elif winner == 'X':
-            print('X 이김')
+            #print('X 이김')
+            messagebox.showinfo('Game Over', 'X 이김')
+            self.root.quit()
         elif winner == 'd':
-            print('무승부')
+            #print('무승부')
+            messagebox.showinfo('Game Over', '무승부')
+            self.root.quit()
 
     def draw_board(self):
         x = 0

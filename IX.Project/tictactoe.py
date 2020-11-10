@@ -58,10 +58,13 @@ class TictactoeGUI:
         #클릭 처리 => 말을 놓는다.
         col = x // 100+1
         row = y // 100+1
+        print(row, col)
         self.game_engine.set(row, col)
         #show board
         print(self.game_engine)
+        self.draw_board()
         winner = self.game_engine.check_winner()
+
         #결과 보여주기
         if winner == 'O':
             print('O 이김')
@@ -75,12 +78,15 @@ class TictactoeGUI:
         y = 0
         for i, v in enumerate(self.game_engine.board):
             if v == 'O':
-                self.canvas.create_image(x, y, anchor='nw', image=self.image['O'])
+                self.canvas.create_image(x, y, anchor='nw', image=self.images['O'])
             elif v == 'X':
-                self.canvas.create_image(x, y, anchor='nw', image=self.image['X'])
+                self.canvas.create_image(x, y, anchor='nw', image=self.images['X'])
 
             TILE_SIZE  = self.CANVAS_SIZE//3
-            x+= TILE_SIZE
+            x += TILE_SIZE
+            if i % 3 ==2:
+                x = 0
+                y += TILE_SIZE
 
     def play(self):
         self.root.mainloop()

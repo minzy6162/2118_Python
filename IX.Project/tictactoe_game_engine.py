@@ -9,13 +9,14 @@ class TictactoeGameEngine:
         return self.board[row * 3 + col]
 
     def set(self, row, col):
-        row -= 1
-        col -= 1
         if self.get(row, col) != '.':
             return
 
+        row -= 1
+        col -= 1
+
         self.board[row * 3 + col] = self.current_turn
-        self.current_turn = '0' if self.current_turn == 'X' else 'X'
+        self.current_turn = 'O' if self.current_turn == 'X' else 'X'
         # if self.current_turn == 'X':
         #     self.current_turn = 'O'
         # else:
